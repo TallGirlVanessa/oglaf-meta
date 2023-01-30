@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/static/output.css" rel="stylesheet">
+  <title>{{ title }}</title>
+</head>
+
+<body class="bg-slate-300">
+  <div class="mx-auto max-w-screen-lg flex flex-row justify-center">
+    <div>
+      <div class="bg-white p-4">
+        {% block main -%}
+        {%- endblock %}
+      </div>
+      <div class="bg-slate-300 p-4">Source code and feedback at <a
+          href="https://github.com/vlmphipps/oglaf-meta">GitHub</a>.
+        Released under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">the GNU GPL v3</a>.
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
