@@ -15,7 +15,7 @@ def create_app():
     @app.route("/")
     def home():
         form = TagSearchForm()
-        return render_template("home.html", form=form)
+        return render_template("home.html", form=form, title="Home")
 
     @app.route("/tag-search-results")
     def tag_search_results():
@@ -25,7 +25,11 @@ def create_app():
         if form.validate():
             hits = titles_tag_hits_from_tag_search(form.search.data)
         return render_template(
-            "tag_search_results.html", form=form, hits=hits, tome=tome
+            "tag_search_results.html",
+            form=form,
+            hits=hits,
+            tome=tome,
+            title=f"Results for '{form.search.data}'",
         )
 
     return app
