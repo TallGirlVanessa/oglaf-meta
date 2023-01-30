@@ -32,6 +32,23 @@ def title_hits_from_title_search(search):
     return hits
 
 
+def title_arc_hits_from_arc_search(search):
+    tome = get_tome()
+
+    hits = dict()
+
+    search_arc = search.lower()
+    for lcarc in tome.lcarcs:
+        if search_arc in lcarc:
+            proper_arc = tome.lcarcs[lcarc]
+            for title in tome.arcs[proper_arc]:
+                if title not in hits.keys():
+                    hits[title] = list()
+                hits[title].append(proper_arc)
+
+    return hits
+
+
 def merge_hits(*all_hits):
     merged_hits = {}
     for hits in all_hits:

@@ -4,6 +4,7 @@ from oglaf.features.search.search_forms import SearchForm
 from oglaf.features.search.search_utils import (
     titles_tag_hits_from_tag_search,
     title_hits_from_title_search,
+    title_arc_hits_from_arc_search,
     merge_hits,
 )
 from oglaf.knowledge import get_tome
@@ -29,7 +30,8 @@ def create_app():
         if form.validate():
             tag_hits = titles_tag_hits_from_tag_search(form.search.data)
             title_hits = title_hits_from_title_search(form.search.data)
-            hits = merge_hits(tag_hits, title_hits)
+            arc_hits = title_arc_hits_from_arc_search(form.search.data)
+            hits = merge_hits(arc_hits, title_hits, tag_hits)
         return render_template(
             "search_results.html",
             form=form,

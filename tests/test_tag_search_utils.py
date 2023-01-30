@@ -2,6 +2,7 @@ import pytest
 from oglaf.features.search.search_utils import (
     titles_tag_hits_from_tag_search,
     title_hits_from_title_search,
+    title_arc_hits_from_arc_search,
     merge_hits,
 )
 
@@ -44,6 +45,40 @@ def test_tag_search(search, expected_hits):
 )
 def test_title_search(search, expected_hits):
     hits = title_hits_from_title_search(search)
+
+    assert hits == expected_hits
+
+
+@pytest.mark.parametrize(
+    "search,expected_hits",
+    [
+        (
+            "chess",
+            {},
+        ),
+        (
+            "jar",
+            {},
+        ),
+        (
+            "rise",
+            {
+                "A hundred tiny eyes": ["Rise of Apprentice"],
+                "Blue Door": ["Rise of Apprentice"],
+                "Book of Love": ["Rise of Apprentice"],
+                "Cockhunt": ["Rise of Apprentice"],
+                "Cumsprite": ["Rise of Apprentice"],
+                "Glove": ["Rise of Apprentice"],
+                "Rapunzel": ["Rise of Apprentice"],
+                "Secret admirer": ["Rise of Apprentice"],
+                "Some time ago...": ["Rise of Apprentice"],
+                "emancipation": ["Rise of Apprentice"],
+            },
+        ),
+    ],
+)
+def test_arc_search(search, expected_hits):
+    hits = title_arc_hits_from_arc_search(search)
 
     assert hits == expected_hits
 
