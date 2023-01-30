@@ -2425,19 +2425,6 @@ html {
   }
 }
 
-.label {
-  display: flex;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
 .input {
   flex-shrink: 1;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
@@ -2508,11 +2495,6 @@ html {
   background-color: hsl(var(--pf, var(--p)) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: hsl(var(--pc) / var(--tw-text-opacity));
-}
-
-.btm-nav>* .label {
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 
 .btn:active:hover,
@@ -2654,11 +2636,6 @@ html {
   outline: 2px solid hsl(var(--p));
 }
 
-.label a:hover {
-  --tw-text-opacity: 1;
-  color: hsl(var(--bc) / var(--tw-text-opacity));
-}
-
 .input[list]::-webkit-calendar-picker-indicator {
   line-height: 1em;
 }
@@ -2670,6 +2647,15 @@ html {
 .input:focus {
   outline: 2px solid hsla(var(--bc) / 0.2);
   outline-offset: 2px;
+}
+
+.input-error {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--er) / var(--tw-border-opacity));
+}
+
+.input-error:focus {
+  outline: 2px solid hsl(var(--er));
 }
 
 .input-disabled,
@@ -2848,20 +2834,8 @@ html {
   display: block;
 }
 
-.flex {
-  display: flex;
-}
-
-.w-screen {
-  width: 100vw;
-}
-
 .w-full {
   width: 100%;
-}
-
-.max-w-screen-lg {
-  max-width: 1024px;
 }
 
 .max-w-screen-md {
@@ -2872,17 +2846,9 @@ html {
   max-width: 20rem;
 }
 
-.flex-row {
-  flex-direction: row;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.bg-base-300 {
+.bg-base-200 {
   --tw-bg-opacity: 1;
-  background-color: hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity));
+  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
 }
 
 .bg-base-100 {
@@ -2890,41 +2856,13 @@ html {
   background-color: hsl(var(--b1) / var(--tw-bg-opacity));
 }
 
-.bg-base-200 {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
-}
-
 .p-4 {
   padding: 1rem;
-}
-
-.pt-4 {
-  padding-top: 1rem;
-}
-
-.text-7xl {
-  font-size: 4.5rem;
-  line-height: 1;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
 
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
-}
-
-.font-bold {
-  font-weight: 700;
 }
 
 .font-extrabold {
@@ -2936,7 +2874,7 @@ html {
   color: hsl(var(--bc) / var(--tw-text-opacity));
 }
 
-.text-primary {
+.text-error {
   --tw-text-opacity: 1;
-  color: hsl(var(--p) / var(--tw-text-opacity));
+  color: hsl(var(--er) / var(--tw-text-opacity));
 }

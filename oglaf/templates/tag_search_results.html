@@ -2,13 +2,21 @@
 
 {% block main %}
 <form action="{{url_for('tag_search_results')}}" class="my-4">
-  {{ form.search(class="input input-bordered w-full max-w-xs") }}
+  {% set field_class="input input-bordered w-full max-w-xs" %}
+  {% if form.search.errors %}
+  {% set field_class=field_class + ' input-error' %}
+  {% endif %}
+  {{ form.search(class=field_class) }}
   <input type="submit" value="Search" class="btn btn-primary" />
+  {% for error in form.search.errors %}
+  <div class="text-error">{{ error }}</div>
+  {% endfor %}
 </form>
 <div class="prose">
   {% if not hits %}
   <p>No results.</p>
   {% else %}
+  <p>{{ hits | length }} results.</p>
   {% for (title, tags) in hits.items() %}
   {% set urls = tome.titles[title]["urls"] %}
   <h3><a href="{{urls[0]}}" target="_blank">{{ title }} ({{ urls | length }} pages)</a></h3>

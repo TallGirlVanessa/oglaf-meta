@@ -20,8 +20,10 @@ def create_app():
     @app.route("/tag-search-results")
     def tag_search_results():
         form = TagSearchForm(request.args)
-        hits = titles_tag_hits_from_tag_search(form.search.data)
         tome = get_tome()
+        hits = {}
+        if form.validate():
+            hits = titles_tag_hits_from_tag_search(form.search.data)
         return render_template(
             "tag_search_results.html", form=form, hits=hits, tome=tome
         )
