@@ -13,14 +13,14 @@ from oglaf.features.search.search_utils import (
         (
             "chess",
             {
-                "the Automaton": ["Chess"],
-                "Lair of the Grandmaster": ["Lethal Chessboard"],
-                "the Cyprian defence": ["Chess"],
+                "the Automaton": {"Chess"},
+                "Lair of the Grandmaster": {"Lethal Chessboard"},
+                "the Cyprian defence": {"Chess"},
             },
         ),
         (
             "jar",
-            {"Theodicy": ["Jar"]},
+            {"Theodicy": {"Jar"}},
         ),
     ],
 )
@@ -39,7 +39,7 @@ def test_tag_search(search, expected_hits):
         ),
         (
             "jar",
-            {"Jar, Lamp, Ham": ["Jar, Lamp, Ham"]},
+            {"Jar, Lamp, Ham": {"Jar, Lamp, Ham"}},
         ),
     ],
 )
@@ -63,16 +63,16 @@ def test_title_search(search, expected_hits):
         (
             "rise",
             {
-                "A hundred tiny eyes": ["Rise of Apprentice"],
-                "Blue Door": ["Rise of Apprentice"],
-                "Book of Love": ["Rise of Apprentice"],
-                "Cockhunt": ["Rise of Apprentice"],
-                "Cumsprite": ["Rise of Apprentice"],
-                "Glove": ["Rise of Apprentice"],
-                "Rapunzel": ["Rise of Apprentice"],
-                "Secret admirer": ["Rise of Apprentice"],
-                "Some time ago...": ["Rise of Apprentice"],
-                "emancipation": ["Rise of Apprentice"],
+                "A hundred tiny eyes": {"Rise of Apprentice"},
+                "Blue Door": {"Rise of Apprentice"},
+                "Book of Love": {"Rise of Apprentice"},
+                "Cockhunt": {"Rise of Apprentice"},
+                "Cumsprite": {"Rise of Apprentice"},
+                "Glove": {"Rise of Apprentice"},
+                "Rapunzel": {"Rise of Apprentice"},
+                "Secret admirer": {"Rise of Apprentice"},
+                "Some time ago...": {"Rise of Apprentice"},
+                "emancipation": {"Rise of Apprentice"},
             },
         ),
     ],
@@ -87,14 +87,18 @@ def test_arc_search(search, expected_hits):
     "all_hits,expected_merged",
     [
         ([], {}),
-        ([{"a title": ["a tag"]}], {"a title": ["a tag"]}),
+        ([{"a title": {"a tag"}}], {"a title": {"a tag"}}),
         (
-            [{"a title": ["a tag"]}, {"different title": ["different tag"]}],
-            {"a title": ["a tag"], "different title": ["different tag"]},
+            [{"a title": {"a tag"}}, {"different title": {"different tag"}}],
+            {"a title": {"a tag"}, "different title": {"different tag"}},
         ),
         (
-            [{"a title": ["a tag"]}, {"a title": ["different tag"]}],
-            {"a title": ["a tag", "different tag"]},
+            [{"a title": {"a tag"}}, {"a title": {"different tag"}}],
+            {"a title": {"a tag", "different tag"}},
+        ),
+        (
+            [{"a title": {"same tag"}}, {"a title": {"same tag"}}],
+            {"a title": {"same tag"}},
         ),
     ],
 )

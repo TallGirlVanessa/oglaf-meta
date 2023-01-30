@@ -12,8 +12,8 @@ def titles_tag_hits_from_tag_search(search):
             proper_tag = tome.lctags[lctag]
             for title in tome.tags[proper_tag]:
                 if title not in hits.keys():
-                    hits[title] = list()
-                hits[title].append(proper_tag)
+                    hits[title] = set()
+                hits[title].add(proper_tag)
 
     return hits
 
@@ -27,7 +27,7 @@ def title_hits_from_title_search(search):
     for lctitle in tome.lctitles:
         if search_title in lctitle:
             proper_title = tome.lctitles[lctitle]
-            hits[proper_title] = [proper_title]
+            hits[proper_title] = {proper_title}
 
     return hits
 
@@ -43,8 +43,8 @@ def title_arc_hits_from_arc_search(search):
             proper_arc = tome.lcarcs[lcarc]
             for title in tome.arcs[proper_arc]:
                 if title not in hits.keys():
-                    hits[title] = list()
-                hits[title].append(proper_arc)
+                    hits[title] = set()
+                hits[title].add(proper_arc)
 
     return hits
 
@@ -56,5 +56,5 @@ def merge_hits(*all_hits):
             if title not in merged_hits:
                 merged_hits[title] = tags
             else:
-                merged_hits[title] += tags
+                merged_hits[title] = merged_hits[title].union(tags)
     return merged_hits
