@@ -5,7 +5,7 @@
   <p class="mb-2">Searches tags of Oglaf strips, added by contributors to the project.</p>
   <p class="mb-2">Metadata last updated 2021-02-01.</p>
 </div>
-<form action="{{url_for('tag_search_results')}}" class="mt-4">
+<form action="{{url_for('search_results')}}" class="mt-4">
   {{ form.search(class="input input-bordered w-full max-w-xs my-4") }}
   <input type="submit" value="Search" class="btn btn-primary" />
 </form>

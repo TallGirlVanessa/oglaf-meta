@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<form action="{{url_for('tag_search_results')}}" class="my-4">
+<form action="{{url_for('search_results')}}" class="my-4">
   {% set field_class="input input-bordered w-full max-w-xs" %}
   {% if form.search.errors %}
   {% set field_class=field_class + ' input-error' %}

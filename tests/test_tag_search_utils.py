@@ -1,5 +1,5 @@
 import pytest
-from oglaf.features.tag_search.tag_search_utils import titles_tag_hits_from_tag_search
+from oglaf.features.search.search_utils import titles_tag_hits_from_tag_search
 
 
 @pytest.mark.parametrize(
