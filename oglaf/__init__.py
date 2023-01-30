@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from flask_talisman import Talisman
 from oglaf.features.tag_search.tag_search_forms import TagSearchForm
 from oglaf.features.tag_search.tag_search_utils import titles_tag_hits_from_tag_search
 from oglaf.knowledge import get_tome
@@ -8,6 +9,8 @@ def create_app():
     app = Flask(__name__)
 
     app.config["WTF_CSRF_ENABLED"] = False
+
+    Talisman(app)
 
     @app.route("/")
     def home():
