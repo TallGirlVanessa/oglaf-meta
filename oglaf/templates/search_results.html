@@ -2,7 +2,7 @@
 
 {% block main %}
 <form action="{{url_for('search_results')}}" class="my-4">
-  {% set field_class="input input-bordered w-full max-w-xs" %}
+  {% set field_class="input input-bordered w-full max-w-xs mr-2" %}
   {% if form.search.errors %}
   {% set field_class=field_class + ' input-error' %}
   {% endif %}
