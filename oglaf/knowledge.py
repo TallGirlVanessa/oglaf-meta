@@ -2,6 +2,7 @@
 
 import json
 import re
+import functools
 
 
 class TomeOfKnowledge:
@@ -113,6 +114,11 @@ class TomeOfKnowledge:
         """Write metadata to file"""
         with open(self.metafile, "w") as outfile:
             json.dump(self.titles, outfile, indent=2)
+
+
+@functools.cache
+def get_tome():
+    return TomeOfKnowledge()
 
 
 if __name__ == "__main__":
