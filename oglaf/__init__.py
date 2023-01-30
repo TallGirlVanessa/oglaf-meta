@@ -1,7 +1,11 @@
 from flask import Flask, render_template, request
 from flask_talisman import Talisman
 from oglaf.features.search.search_forms import SearchForm
-from oglaf.features.search.search_utils import titles_tag_hits_from_tag_search
+from oglaf.features.search.search_utils import (
+    titles_tag_hits_from_tag_search,
+    title_hits_from_title_search,
+    merge_hits,
+)
 from oglaf.knowledge import get_tome
 
 
@@ -23,7 +27,9 @@ def create_app():
         tome = get_tome()
         hits = {}
         if form.validate():
-            hits = titles_tag_hits_from_tag_search(form.search.data)
+            tag_hits = titles_tag_hits_from_tag_search(form.search.data)
+            title_hits = title_hits_from_title_search(form.search.data)
+            hits = merge_hits(tag_hits, title_hits)
         return render_template(
             "search_results.html",
             form=form,
