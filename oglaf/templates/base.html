@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="bg-base-300">
 
 <head>
   <meta charset="utf-8">
@@ -8,20 +8,21 @@
   <title>{{ title }}</title>
 </head>
 
-<body class="bg-slate-300">
-  <div class="mx-auto max-w-screen-lg flex flex-row justify-center">
-    <div>
-      <div class="bg-white p-4">
-        {% block main -%}
-        {%- endblock %}
-      </div>
-      <div class="bg-slate-300 p-4">Source code and feedback at <a
-          href="https://github.com/vlmphipps/oglaf-meta">GitHub</a>.
-        Released under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">the GNU GPL v3</a>.
-        Tailwind CSS is under the <a href="https://opensource.org/licenses/MIT">MIT license</a>.
-      </div>
-    </div>
+<body>
+  <div class="mx-auto max-w-screen-md bg-base-100 p-4">
+    {% block main -%}
+    {%- endblock %}
   </div>
+  <footer class="footer mx-auto max-w-screen-md pt-4 bg-base-300 text-base-content">
+    <div>
+      <p>
+        Source code and feedback at <a class="text-primary" href="https://github.com/vlmphipps/oglaf-meta">GitHub</a>.
+        Released under the <a class="text-primary" href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPL v3</a>.
+        Tailwind CSS and daisyUI are under the <a class="text-primary" href="https://opensource.org/licenses/MIT">MIT
+          license</a>.
+      </p>
+    </div>
+  </footer>
 
 </body>
 
