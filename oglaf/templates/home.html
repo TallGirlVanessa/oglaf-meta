@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<div class="prose">
-  <p>Searches tags of Oglaf strips, added by contributors to the project.</p>
-  <p>Metadata last updated 2021-02-01.</p>
+<div class="leading-7">
+  <p class="mb-2">Searches tags of Oglaf strips, added by contributors to the project.</p>
+  <p class="mb-2">Metadata last updated 2021-02-01.</p>
 </div>
 <form action="{{url_for('tag_search_results')}}" class="mt-4">
   {{ form.search(class="input input-bordered w-full max-w-xs") }}

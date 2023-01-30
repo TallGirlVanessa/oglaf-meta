@@ -12,15 +12,18 @@
   <div class="text-error">{{ error }}</div>
   {% endfor %}
 </form>
-<div class="prose">
+<div class="leading-7">
   {% if not hits %}
-  <p>No results.</p>
+  <p class="mb-3">No results.</p>
   {% else %}
-  <p>{{ hits | length }} results.</p>
+  <p class="mb-3">{{ hits | length }} results.</p>
   {% for (title, tags) in hits.items() %}
   {% set urls = tome.titles[title]["urls"] %}
-  <h3><a href="{{urls[0]}}" target="_blank">{{ title }} ({{ urls | length }} pages)</a></h3>
-  <p>Tags matched:
+  <h3 class="text-xl"><a class="link link-secondary" href="{{urls[0]}}" target="_blank">{{ title }}
+      ({{ urls | length }}
+      pages)</a>
+  </h3>
+  <p class="mb-4">Tags matched:
     {{ ", ".join(tags)}}
   </p>
   {% endfor %}
