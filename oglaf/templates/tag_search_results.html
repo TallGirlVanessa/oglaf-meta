@@ -10,7 +10,8 @@
   <p>No results.</p>
   {% else %}
   {% for (title, tags) in hits.items() %}
-  <h3>{{ title }}</h3>
+  {% set urls = tome.titles[title]["urls"] %}
+  <h3><a href="{{urls[0]}}" target="_blank">{{ title }} ({{ urls | length }} pages)</a></h3>
   <p>Tags matched:
     {{ ", ".join(tags)}}
   </p>

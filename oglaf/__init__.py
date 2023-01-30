@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from oglaf.features.tag_search.tag_search_forms import TagSearchForm
 from oglaf.features.tag_search.tag_search_utils import titles_tag_hits_from_tag_search
+from oglaf.knowledge import get_tome
 
 
 def create_app():
@@ -17,6 +18,9 @@ def create_app():
     def tag_search_results():
         form = TagSearchForm(request.args)
         hits = titles_tag_hits_from_tag_search(form.search.data)
-        return render_template("tag_search_results.html", form=form, hits=hits)
+        tome = get_tome()
+        return render_template(
+            "tag_search_results.html", form=form, hits=hits, tome=tome
+        )
 
     return app
