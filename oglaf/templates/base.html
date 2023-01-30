@@ -13,8 +13,8 @@
   <div class="mx-auto max-w-screen-md bg-base-100 p-4">
     <div class="mb-4">
       <h1 class="text-4xl font-extrabold">
-        <a href="{{url_for('home')}}">
-          Oglaf Search</a>
+        <a class="flex items-center" href="{{url_for('home')}}">
+          <img class="mr-2" src="{{ url_for('static', filename='images/logo.png') }}" />Oglaf Search</a>
       </h1>
     </div>
     {% block main -%}
