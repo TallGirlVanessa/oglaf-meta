@@ -7,7 +7,7 @@
   {% set field_class=field_class + ' input-error' %}
   {% endif %}
   {{ form.search(class=field_class) }}
-  <input type="submit" value="Search" class="btn btn-primary" />
+  <input type="submit" value="Search" class="btn btn-primary my-4" />
   {% for error in form.search.errors %}
   <div class="text-error">{{ error }}</div>
   {% endfor %}
