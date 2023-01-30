@@ -10,8 +10,11 @@
 
 <body>
   <div class="mx-auto max-w-screen-md bg-base-100 p-4">
-    <div class="prose mb-4">
-      <h1>Oglaf Search</h1>
+    <div class="mb-4">
+      <h1 class="text-4xl font-extrabold">
+        <a href="{{url_for('home')}}">
+          Oglaf Search</a>
+      </h1>
     </div>
     {% block main -%}
     {%- endblock %}

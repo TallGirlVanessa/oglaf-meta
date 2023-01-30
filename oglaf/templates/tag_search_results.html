@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<form action="{{url_for('tag_search_results')}}" class="my-4">
+  {{ form.search(class="input input-bordered w-full max-w-xs") }}
+  <input type="submit" value="Search" class="btn btn-primary" />
+</form>
+<div class="prose">
+  {% if not hits %}
+  <p>No results.</p>
+  {% else %}
+  {% for (title, tags) in hits.items() %}
+  <h3>{{ title }}</h3>
+  <p>Tags matched:
+    {{ ", ".join(tags)}}
+  </p>
+  {% endfor %}
+  {% endif %}
+</div>
+{% endblock %}
