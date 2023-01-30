@@ -2812,6 +2812,10 @@ html {
   border-bottom-right-radius: var(--rounded-btn, 0.5rem);
 }
 
+.static {
+  position: static;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
